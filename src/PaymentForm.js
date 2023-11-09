@@ -60,6 +60,7 @@ export default function PaymentForm() {
             direction="row"
             alignItems="center"
             justifyContent="center"
+            marginBottom={2}
           >
             <Grid item xs={6}>
               <NumericFormat
@@ -87,10 +88,10 @@ export default function PaymentForm() {
                 onChange={(newDate) => setDate(newDate)}
               />
             </Grid>
-            <Grid item xs={12}>
-              <BasicSelect />
-            </Grid>
+            {/* <Grid item xs={12}> */}
+            {/* </Grid> */}
           </Grid>
+          <BasicSelect />
           <Button
             type="submit"
             variant="contained"
