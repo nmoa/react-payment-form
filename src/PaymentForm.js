@@ -1,4 +1,7 @@
 import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Typography from '@mui/material/Typography';
+import CurrencyYenIcon from '@mui/icons-material/CurrencyYen';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
@@ -9,7 +12,6 @@ import { DatePicker } from '@mui/x-date-pickers';
 import { NumericFormat } from 'react-number-format';
 import { useState } from 'react';
 import BasicSelect from './BasicSelect';
-import Title from './Title';
 
 
 // TODO remove, this demo shouldn't need to reset the theme.
@@ -38,8 +40,20 @@ export default function PaymentForm() {
           alignItems: 'center',
         }}
       >
-        <Title />
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <CurrencyYenIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          家計費精算
+        </Typography>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          noValidate sx={{
+            mt: 1,
+            alignItems: 'center'
+          }}
+        >
           <Grid
             container
             spacing={2}
@@ -76,16 +90,14 @@ export default function PaymentForm() {
             <Grid item xs={12}>
               <BasicSelect />
             </Grid>
-            <Grid item xs={12}>
-              <Button
-                type="submit"
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                送信
-              </Button>
-            </Grid>
           </Grid>
+          <Button
+            type="submit"
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            送信
+          </Button>
         </Box>
       </Box>
     </Container>
