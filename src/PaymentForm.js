@@ -50,7 +50,7 @@ export default function PaymentForm() {
           component="form"
           onSubmit={handleSubmit}
           noValidate sx={{
-            mt: 1,
+            mt: 4,
             alignItems: 'center'
           }}
         >

@@ -16,68 +16,133 @@ const categories = [
     },
     {
         name: '日用品',
-        subcategories: []
+        subcategories: [
+            '日用品',
+            '子育て用品',
+            'ドラッグストア',
+            'おこづかい',
+            'ペット用品',
+            'タバコ',
+            'その他日用品',
+        ]
     },
     {
         name: '趣味・娯楽',
-        subcategories: []
+        subcategories: [
+            'アウトドア',
+            'ゴルフ',
+            'スポーツ',
+            '映画・音楽・ゲーム',
+            '本',
+            '旅行',
+            '秘密の趣味',
+            'その他趣味・娯楽',
+        ]
     },
     {
         name: '交際費',
-        subcategories: []
+        subcategories: [
+            '交際費',
+            '飲み会',
+            '飲み会立替',
+            '家族飲み',
+            'プレゼント代',
+            '冠婚葬祭',
+            'その他交際費',
+        ]
     },
     {
         name: '交通費',
-        subcategories: []
+        subcategories: [
+            '交通費',
+            '電車',
+            'バス',
+            'タクシー',
+            '飛行機',
+            'その他交通費',
+        ]
     },
     {
         name: '衣服・美容',
-        subcategories: []
+        subcategories: [
+            '衣服',
+            'クリーニング',
+            '美容院・理髪',
+            '化粧品',
+            'アクセサリー',
+            'その他衣服・美容',
+        ]
     },
     {
         name: '健康・医療',
-        subcategories: []
+        subcategories: [
+            'フィットネス',
+            'ボディケア',
+            '医療費',
+            '薬',
+            'その他健康・医療',
+        ]
     },
     {
         name: '自動車',
-        subcategories: []
+        subcategories: [
+            '道路料金',
+            'ガソリン',
+            '駐車場',
+            '車両',
+            '車検・整備',
+            '自動車保険',
+            '自動車ローン',
+            'その他自動車',
+        ]
     },
     {
         name: '教養・教育',
-        subcategories: []
+        subcategories: [
+            '書籍',
+            '新聞・雑誌',
+            '習いごと',
+            '学費',
+            '塾',
+            'その他教養・教育',
+        ]
     },
     {
         name: '特別な支出',
-        subcategories: []
+        subcategories: [
+            '家具・家電',
+            '住宅・リフォーム',
+            'その他特別な支出',
+        ]
     },
-    {
-        name: '現金・カード',
-        subcategories: []
-    },
-    {
-        name: '水道・光熱費',
-        subcategories: []
-    },
-    {
-        name: '通信費',
-        subcategories: []
-    },
-    {
-        name: '住宅',
-        subcategories: []
-    },
-    {
-        name: '税・社会保障',
-        subcategories: []
-    },
-    {
-        name: '保険',
-        subcategories: []
-    },
-    {
-        name: 'その他',
-        subcategories: []
-    },
+    // {
+    //     name: '現金・カード',
+    //     subcategories: []
+    // },
+    // {
+    //     name: '水道・光熱費',
+    //     subcategories: []
+    // },
+    // {
+    //     name: '通信費',
+    //     subcategories: []
+    // },
+    // {
+    //     name: '住宅',
+    //     subcategories: []
+    // },
+    // {
+    //     name: '税・社会保障',
+    //     subcategories: []
+    // },
+    // {
+    //     name: '保険',
+    //     subcategories: []
+    // },
+    // {
+    //     name: 'その他',
+    //     subcategories: []
+    // },
 ];
 
 export default categories;
