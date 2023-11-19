@@ -4,6 +4,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
 import ja from 'date-fns/locale/ja'
+import { Container } from "@mui/material";
+import Title from "./Title";
 
 import PaymentForm from "./PaymentForm"
 
@@ -16,7 +18,10 @@ function App() {
       <CssBaseline />
       <ThemeProvider theme={defaultTheme}>
         <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={ja}>
-          <PaymentForm />
+          <Container component="main" maxWidth="sm" >
+            <Title />
+            <PaymentForm />
+          </Container>
         </LocalizationProvider >
       </ThemeProvider>
     </>
