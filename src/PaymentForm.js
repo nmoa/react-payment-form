@@ -16,18 +16,22 @@ export default function PaymentForm() {
   const [subcategory, setSubcategory] = useState(category.subcategories[0]);
 
   const handleMainChange = (e) => {
-    const selectedCategory = categories.filter(category => (category.name === e.target.value));
-    setCategory(...selectedCategory);
+    const selected = categories.filter(element => (element.name === e.target.value));
+    setCategory(...selected);
   };
+
   const handleSubChange = (e) => {
-    setSubcategory(e.target.value);
+    const selected = category.subcategories.filter(element => (element.name === e.target.value));
+    setSubcategory(...selected);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
     console.log({
-      amount: data.get('amount'),
-      date: data.get('date'),
+      amount: amount,
+      date: date,
+      category: category.name,
+      subcategory: subcategory.name
     });
   };
 
