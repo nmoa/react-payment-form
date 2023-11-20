@@ -6,7 +6,7 @@ export default function AmountInput({ amount, setAmount }) {
     return (
         <NumericFormat
             fullWidth
-            thousandSeparator={true}
+            thousandSeparator={false}
             allowNegative={false}
             decimalScale={0}
             customInput={TextField}

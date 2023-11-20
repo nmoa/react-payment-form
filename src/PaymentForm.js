@@ -10,6 +10,7 @@ import categories from './categories';
 
 
 export default function PaymentForm() {
+  console.log("process.env.REACT_APP_GAS_APP_URL = " + process.env.REACT_APP_GAS_APP_URL);
   const [amount, setAmount] = useState();
   const [date, setDate] = useState(new Date());
   const [category, setCategory] = useState(categories[0]);
@@ -27,12 +28,28 @@ export default function PaymentForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({
-      amount: amount,
-      date: date,
-      category: category.name,
-      subcategory: subcategory.name
-    });
+    const formData = new FormData();
+    formData.append("amount", amount);
+    formData.append("date", date.toLocaleDateString("ja-JP", {
+      year: "numeric", month: "2-digit",
+      day: "2-digit"
+    }));
+    formData.append("category", category.name);
+    formData.append("subcategory", subcategory.name);
+    fetch(
+      process.env.REACT_APP_GAS_APP_URL,
+      {
+        method: "POST",
+        body: formData
+      }
+    )
+      .then((res) => res.text())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
