@@ -10,7 +10,6 @@ import categories from './categories';
 
 
 export default function PaymentForm() {
-  console.log("process.env.REACT_APP_GAS_APP_URL = " + process.env.REACT_APP_GAS_APP_URL);
   const [amount, setAmount] = useState();
   const [date, setDate] = useState(new Date());
   const [category, setCategory] = useState(categories[0]);
