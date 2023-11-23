@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { useState } from 'react';
+import axios from 'axios';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -27,28 +27,30 @@ export default function PaymentForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("amount", amount);
-    formData.append("date", date.toLocaleDateString("ja-JP", {
+    const strDate = date.toLocaleDateString("ja-JP", {
       year: "numeric", month: "2-digit",
       day: "2-digit"
-    }));
-    formData.append("category", category.name);
-    formData.append("subcategory", subcategory.name);
-    fetch(
-      process.env.REACT_APP_GAS_APP_URL,
-      {
-        method: "POST",
-        body: formData
-      }
-    )
-      .then((res) => res.text())
-      .then((data) => {
-        console.log(data);
+    });
+    const sendData = { "amount": amount, "date": strDate, "category": category.name, "subcategory": subcategory.name };
+    const formData = new FormData();
+    Object.entries(sendData).forEach(([key, value]) => {
+      formData.append(key, value);
+    })
+
+    axios.post(process.env.REACT_APP_GAS_POST_URL, formData)
+      .then((res) => {
+        console.log(res);
       })
       .catch((error) => {
         console.log(error);
       });
+    // axios.post(process.env.REACT_APP_PYTHON_BACKEND_URL, sendData)
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   };
 
   return (
@@ -57,7 +59,8 @@ export default function PaymentForm() {
       <Box
         component="form"
         onSubmit={handleSubmit}
-        noValidate sx={{
+        noValidate
+        sx={{
           mt: 4,
           alignItems: 'center'
         }}
@@ -70,13 +73,13 @@ export default function PaymentForm() {
           justifyContent="center"
           marginBottom={2}
         >
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <AmountInput amount={amount} setAmount={setAmount} />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <PaymentDateInput date={date} setDate={setDate} />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <CategorySelect
               id="category"
               labelText="項目"
@@ -84,7 +87,7 @@ export default function PaymentForm() {
               handleChange={handleMainChange}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <CategorySelect
               id="sub-category"
               labelText="小項目"

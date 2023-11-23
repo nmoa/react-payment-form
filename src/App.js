@@ -18,7 +18,7 @@ function App() {
       <CssBaseline />
       <ThemeProvider theme={defaultTheme}>
         <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={ja}>
-          <Container component="main" maxWidth="sm" >
+          <Container component="main" maxWidth="xs" >
             <Title />
             <PaymentForm />
           </Container>
